@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <EmptyNode></EmptyNode>
+    <pool name="default">
+        <coreSize>30</coreSize>
+        <maxSize>150</maxSize>
+        <keepAliveTime>5</keepAliveTime>
+        <queueSize>100000</queueSize>
+    </pool>
+</root>
