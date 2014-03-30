@@ -7,4 +7,10 @@
         <keepAliveTime>5</keepAliveTime>
         <queueSize>100000</queueSize>
     </pool>
+    <pool name="other">
+        <coreSize>30</coreSize>
+        <maxSize>150</maxSize>
+        <keepAliveTime>5</keepAliveTime>
+        <queueSize>100000</queueSize>
+    </pool>
 </root>

@@ -1,6 +1,8 @@
 package cn.aofeng.common4j.xml;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.w3c.dom.NamedNodeMap;
@@ -18,7 +20,7 @@ public class NodeParser {
     
     private Map<String, String> _attrMap;
     
-    private Map<String, Node> _childNodes;
+    private List<Node> _childNodes;
     
     public NodeParser(Node node) {
         this._node = node;
@@ -60,9 +62,9 @@ public class NodeParser {
     }
     
     /**
-     * @return 下一级的所有子元素的映射表。key为子元素的名称，value为子元素对象。
+     * @return 下一级的所有子元素的列表。
      */
-    public Map<String, Node> getChildNodes() {
+    public List<Node> getChildNodes() {
         initChildNodeList();
         return _childNodes;
     }
@@ -76,14 +78,24 @@ public class NodeParser {
     }
     
     /**
-     * 返回指定子元素。
+     * 返回指定子元素。<strong>注：</strong>如果有多个相同名称的子元素，只返回获取到的第一个元素。
      * 
      * @param nodeName 子元素名称
      * @return 子元素。如果指定的子元素不存在，返回null。
      */
     public Node getChildNode(String nodeName) {
+        if (null == nodeName) {
+            return null;
+        }
+        
         initChildNodeList();
-        return _childNodes.get(nodeName);
+        for (Node node : _childNodes) {
+            if (nodeName.equals(node.getNodeName())) {
+                return node;
+            }
+        }
+        
+        return null;
     }
     
     /**
@@ -94,8 +106,7 @@ public class NodeParser {
      * @return 子元素的值。如果为非文本元素，有可能返回不是期望的值。
      */
     public String getChildNodeValue(String nodeName) {
-        initChildNodeList();
-        Node node =_childNodes.get(nodeName);
+        Node node = getChildNode(nodeName);
         if (null == node) {
             return null;
         }
@@ -108,14 +119,14 @@ public class NodeParser {
             return;
         }
         
-        _childNodes = new HashMap<String, Node>();
+        _childNodes = new ArrayList<Node>();
         NodeList nodeList = _node.getChildNodes();
         for (int i = 0; i < nodeList.getLength(); i++) {
             Node node = nodeList.item(i);
             if (Node.ELEMENT_NODE != node.getNodeType()) {
                 continue;
             }
-            _childNodes.put(node.getNodeName(), node);
+            _childNodes.add(node);
         }
     }
 

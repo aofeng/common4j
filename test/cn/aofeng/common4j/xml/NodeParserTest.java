@@ -2,7 +2,7 @@ package cn.aofeng.common4j.xml;
 
 import static org.junit.Assert.*;
 
-import java.util.Map;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -53,10 +53,10 @@ public class NodeParserTest {
     
     @Test
     public void testGetChildNodes() {
-        // root节点有两个子节点
-        Map<String, Node> nodeMap = _nodeParser.getChildNodes();
+        // root节点有三个子节点
+        List<Node> nodeMap = _nodeParser.getChildNodes();
         assertNotNull(nodeMap);
-        assertEquals(2, nodeMap.size());
+        assertEquals(3, nodeMap.size());
         
         // EmptyNode节点没有子节点
         Node emptyNode = _nodeParser.getChildNode("EmptyNode");
@@ -67,7 +67,7 @@ public class NodeParserTest {
     @Test
     public void testGetChildNodeCount() {
         // root节点有两个子节点
-        assertEquals(2, _nodeParser.getChildNodeCount());
+        assertEquals(3, _nodeParser.getChildNodeCount());
         
         // EmptyNode节点没有子节点
         Node emptyNode = _nodeParser.getChildNode("EmptyNode");
