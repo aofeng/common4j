@@ -13,7 +13,7 @@ import org.w3c.dom.Node;
 /**
  * {@link NodeParser}的单元测试用例。
  * 
- * @author <a href="mailto:nieyong@ucweb.com">聂勇</a>
+ * @author <a href="mailto:aofengblog@163.com">聂勇</a>
  */
 public class NodeParserTest {
 
