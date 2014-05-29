@@ -46,12 +46,12 @@
     </target>
 
     <target name="jar-src">
-        <jar destfile="${dist_dir}/${package_name}-src.jar" basedir="${src_dir}">
+        <jar destfile="${dist_dir}/${package_name}-sources.jar" basedir="${src_dir}">
             <manifest>
-                <attribute name="Built-By" value="NieYong, http://aofengblog.blog.163.com" />
-                <attribute name="Implementation-Vendor" value="NieYong" />
-                <attribute name="Implementation-Title" value="NieYong" />
-                <attribute name="Implementation-Version" value="1.0.0" />
+                <attribute name="Built-By" value="NieYong" />
+                <attribute name="Implementation-Vendor" value="cn.aofeng" />
+                <attribute name="Implementation-Title" value="common4j" />
+                <attribute name="Implementation-Version" value="0.1.0" />
             </manifest>
         </jar>
     </target>
