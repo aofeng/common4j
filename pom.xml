@@ -82,10 +82,10 @@
                         <index>true</index>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
                         <manifestEntries>
                             <Built-By>NieYong</Built-By>
+                            <Implementation-Vendor>https://github.com/aofeng/common4j</Implementation-Vendor>
                         </manifestEntries>
                     </archive>
                 </configuration>
