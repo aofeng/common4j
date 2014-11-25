@@ -27,6 +27,14 @@ public class NodeParser {
     }
     
     /**
+     * 获取元素的文本值。
+     * @return 元素的文本值。
+     */
+    public String getValue() {
+        return _node.getTextContent();
+    }
+    
+    /**
      * 获取指定属性的值。
      * 
      * @param attrName 属性名称

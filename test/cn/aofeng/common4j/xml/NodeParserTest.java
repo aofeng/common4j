@@ -30,6 +30,20 @@ public class NodeParserTest {
     }
     
     @Test
+    public void testGetValue() {
+        // root节点没有值，但有子节点，会返回所有子节点的文本值
+        assertNotNull(_nodeParser.getValue());
+        
+        // EmptyNode的值为空字符串
+        NodeParser emptyNode = new NodeParser(_nodeParser.getChildNode("EmptyNode"));
+        assertEquals("", emptyNode.getValue());
+        
+        // TextNode的值为"TextNodeValue"
+        NodeParser textNode = new NodeParser(_nodeParser.getChildNode("TextNode"));
+        assertEquals("TextNodeValue", textNode.getValue());
+    }
+    
+    @Test
     public void testGetAttributeValue() {
         // root节点没有属性
         assertNull(_nodeParser.getAttributeValue("NotExist"));
@@ -56,7 +70,7 @@ public class NodeParserTest {
         // root节点有三个子节点
         List<Node> nodeMap = _nodeParser.getChildNodes();
         assertNotNull(nodeMap);
-        assertEquals(3, nodeMap.size());
+        assertEquals(4, nodeMap.size());
         
         // EmptyNode节点没有子节点
         Node emptyNode = _nodeParser.getChildNode("EmptyNode");
@@ -66,8 +80,8 @@ public class NodeParserTest {
     
     @Test
     public void testGetChildNodeCount() {
-        // root节点有两个子节点
-        assertEquals(3, _nodeParser.getChildNodeCount());
+        // root节点有四个子节点
+        assertEquals(4, _nodeParser.getChildNodeCount());
         
         // EmptyNode节点没有子节点
         Node emptyNode = _nodeParser.getChildNode("EmptyNode");
