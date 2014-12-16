@@ -27,6 +27,15 @@ public class NodeParser {
     }
     
     /**
+     * 获取元素名称。
+     * 
+     * @return 元素名称。
+     */
+    public String getName() {
+        return _node.getNodeName();
+    }
+    
+    /**
      * 获取元素的文本值。
      * @return 元素的文本值。
      */
