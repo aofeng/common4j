@@ -12,23 +12,26 @@ public class DefaultThreadFactory implements ThreadFactory {
 
     private static AtomicLong _count = new AtomicLong(1);
     
-    private final static String THREAD_NAME_PRIFIX = "aofeng-thread";
+    private final static String DEFAULT_THREAD_NAME_PRIFIX = "aofeng-thread";
     
     private ThreadGroup _group;
     
+    private String _threadNamePrefix = DEFAULT_THREAD_NAME_PRIFIX;
+    
     public DefaultThreadFactory() {
-        this(THREAD_NAME_PRIFIX);
+        this(DEFAULT_THREAD_NAME_PRIFIX);
     }
     
     public DefaultThreadFactory(String threadNamePrefix) {
+        _threadNamePrefix = threadNamePrefix;
         ThreadGroup root = getRootThreadGroup();
-        _group = new ThreadGroup(root, threadNamePrefix);
+        _group = new ThreadGroup(root, _threadNamePrefix);
     }
     
     @Override
     public Thread newThread(Runnable r) {
         Thread thread = new Thread(_group, r);
-        thread.setName(THREAD_NAME_PRIFIX+"-"+_count.getAndIncrement());
+        thread.setName(_threadNamePrefix+"-"+_count.getAndIncrement());
         if (thread.isDaemon()) {
             thread.setDaemon(false);
         }
