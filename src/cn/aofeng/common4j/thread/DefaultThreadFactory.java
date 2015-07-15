@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class DefaultThreadFactory implements ThreadFactory {
 
-    private static AtomicLong _count = new AtomicLong(1);
+    private AtomicLong _count = new AtomicLong(1);
     
     private final static String DEFAULT_THREAD_NAME_PRIFIX = "aofeng-thread";
     
