@@ -16,4 +16,13 @@ public class SystemUtil {
         return System.getProperty("line.separator");
     }
 
+    /**
+     * 获取当前系统CPU的处理器个数。
+     * 
+     * @return 当前系统CPU的处理器个数。
+     */
+    public static int getProcessorCount() {
+        return Runtime.getRuntime().availableProcessors();
+    }
+
 }
