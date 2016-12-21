@@ -1,6 +1,6 @@
 <project name="common4j" basedir="." default="all">
     <property name="project_name" value="common4j"></property>
-    <property name="project_version" value="0.2.2"></property>
+    <property name="project_version" value="0.3.0"></property>
     <property name="package_name" value="${project_name}-${project_version}"></property>
 	<property name="author" value="NieYong"></property>
 	<property name="organization" value="cn.aofeng"></property>
