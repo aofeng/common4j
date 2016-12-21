@@ -2,7 +2,8 @@ package cn.aofeng.common4j.reflection;
 
 import java.lang.reflect.Constructor;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 反射操作常用方法。
@@ -11,10 +12,10 @@ import org.apache.log4j.Logger;
  */
 public class ReflectionUtil {
 
-    private final static Logger logger = Logger.getLogger(ReflectionUtil.class);
+    private final static Logger _logger = LoggerFactory.getLogger(ReflectionUtil.class);
     
     private ReflectionUtil() {
-        
+        // nothing
     }
     
     /**
@@ -36,9 +37,9 @@ public class ReflectionUtil {
             constructor.setAccessible(true);
             listener = constructor.newInstance();
         } catch (ClassNotFoundException e) {
-            logger.error( String.format("could not found class:%s", className), e);
+            _logger.error( String.format("could not found class:%s", className), e);
         } catch (Exception e) {
-            logger.error( String.format("create instance for class:%s fail", className), e);
+            _logger.error( String.format("create instance for class:%s fail", className), e);
         }
         
         return listener;
@@ -66,9 +67,9 @@ public class ReflectionUtil {
             constructor.setAccessible(true);
             listener = constructor.newInstance(initargs);
         } catch (ClassNotFoundException e) {
-            logger.error( String.format("could not found class:%s", className), e);
+            _logger.error( String.format("could not found class:%s", className), e);
         } catch (Exception e) {
-            logger.error( String.format("create instance for class:%s fail", className), e);
+            _logger.error( String.format("create instance for class:%s fail", className), e);
         }
         
         return listener;
