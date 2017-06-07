@@ -9,16 +9,22 @@ public class ReflectionMock {
 
     private String _value;
     
-    private ReflectionMock() {
+    ReflectionMock() {
         _value = "default";
     }
     
+    @SuppressWarnings("unused")
     private ReflectionMock(String value) {
         _value = value;
     }
     
     public String getValue() {
         return _value;
+    }
+
+    @SuppressWarnings("unused")
+    private String join(String start, int end) {
+        return start + end;
     }
 
 }
