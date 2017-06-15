@@ -27,4 +27,8 @@ public class ReflectionMock {
         return start + end;
     }
 
+    public static String sayHello() {
+        return "Hello";
+    }
+    
 }

@@ -98,14 +98,14 @@ public class ReflectionUtil {
         try {
             method = instance.getClass().getDeclaredMethod(methodName, parameterTypes);
         } catch (SecurityException e) {
-            _logger.error( String.format("find method:%s occurs error", methodName), e);
+            _logger.error( String.format("find method[%s] of class[%s] occurs error", methodName, getClassName(instance)), e);
         } catch (NoSuchMethodException e) {
             try {
                 method = instance.getClass().getMethod(methodName, parameterTypes);
             } catch (SecurityException e1) {
                 // ignore
             } catch (NoSuchMethodException e1) {
-                _logger.error( String.format("find method:%s occurs error", methodName), e);
+                _logger.error( String.format("find method[%s] of class[%s] occurs error", methodName, getClassName(instance)), e);
             }
         }
         
@@ -134,14 +134,50 @@ public class ReflectionUtil {
             method.setAccessible(true);
             result = method.invoke(instance, args);
         } catch (IllegalArgumentException e) {
-            _logger.error( String.format("invoke method:%s occurs error", method.getName()), e);
+            _logger.error( String.format("invoke method[%s] of class[%s] occurs error", method.getName(), getClassName(instance)), e);
         } catch (IllegalAccessException e) {
-            _logger.error( String.format("invoke method:%s occurs error", method.getName()), e);
+            _logger.error( String.format("invoke method[%s] of class[%s] occurs error", method.getName(), getClassName(instance)), e);
         } catch (InvocationTargetException e) {
-            _logger.error( String.format("invoke method:%s occurs error", method.getName()), e);
+            _logger.error( String.format("invoke method[%s] of class[%s] occurs error", method.getName(), getClassName(instance)), e);
         }
         
         return result;
+    }
+
+    /**
+     * 调用类的静态方法。
+     *
+     * @param className 类名
+     * @param methodName 静态方法名
+     * @param argsType 静态方法的参数类型数组
+     * @param args 静态方法的参数数组
+     * @return 方法调用产生的返回值。如果出现以下情况，将返回null：
+     * <ul>
+     *     <li>找不到类</li>
+     *     <li>类中找不到指定的方法</li>
+     *     <li>参数无效</li>
+     * </ul>
+     */
+    public static Object invokeStaticMethod(String className, String methodName, 
+            Class<?>[] argsType, Object[] args) {
+        Class<?> claz = null;
+        try {
+            claz = Class.forName(className);
+            Method method = claz.getMethod(methodName, argsType);
+            return method.invoke(null, args);
+        } catch (Exception e) {
+            _logger.error( String.format("invoke method[%s] of class[%s] occurs error", methodName, className), e);
+        }
+        
+        return null;
+    }
+
+    private static String getClassName(Object obj) {
+        if (null == obj) {
+            return null;
+        }
+        
+        return obj.getClass().getName();
     }
 
 }

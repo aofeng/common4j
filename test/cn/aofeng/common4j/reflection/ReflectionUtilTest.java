@@ -62,4 +62,11 @@ public class ReflectionUtilTest {
         assertEquals("0123456789___696969", result);
     }
 
+    @Test
+    public void testInvokeStaticMethod() {
+        String hello = (String) ReflectionUtil.invokeStaticMethod("cn.aofeng.common4j.reflection.ReflectionMock", 
+                "sayHello", null, null);
+        assertEquals("Hello", hello);
+    }
+
 }
