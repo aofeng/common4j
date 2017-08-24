@@ -39,16 +39,30 @@ public class IOUtil {
     /**
      * 按指定编码读取文件内容并转换成字符串。
      * 
-     * @param file 待读取的文件对象 
+     * @param file 待读取的文件对象
+     * @param readEncoding 读取文件内容的编码格式。如：UTF-8
+     * @return 字符串
+     * @throws IOException 读取文件过程中出错抛出此异常
+     * @see #readAsString(File, Charset)
+     */
+    public static String readAsString(final File file, String readEncoding) throws IOException {
+        Charset encoding = Charset.forName(readEncoding);
+        return readAsString(file, encoding);
+    }
+    
+    /**
+     * 按指定编码读取文件内容并转换成字符串。
+     * 
+     * @param file 待读取的文件对象
      * @param readEncoding 读取文件内容的编码格式。如：UTF-8
      * @return 字符串
      * @throws IOException 读取文件过程中出错抛出此异常
      */
-    public static String readAsString(final File file, String readEncoding) throws IOException {
+    public static String readAsString(final File file, Charset readEncoding) throws IOException {
         StringWriter writer = new StringWriter(BUFFER_SIZE);
         InputStreamReader reader = null;
         try {
-            reader = new InputStreamReader(new FileInputStream(file), Charset.forName(readEncoding));
+            reader = new InputStreamReader(new FileInputStream(file), readEncoding);
             copy(reader, writer);
         } finally {
             closeQuietly(reader);
