@@ -3,6 +3,7 @@ package cn.aofeng.common4j.io;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -56,6 +57,30 @@ public class IOUtil {
         return writer.toString();
     }
 
+    /**
+     * 复制文件。
+     * 
+     * @param src 源文件
+     * @param dest 目标文件
+     * @return 成功复制的字节数
+     * @throws IOException 复制文件过程中出错抛出此异常
+     */
+    public static long copy(File src, File dest) throws IOException {
+        long count = 0;
+        InputStream ins = null;
+        OutputStream outs = null;
+        try {
+            ins = new FileInputStream(src);
+            outs = new FileOutputStream(dest);
+            copy(ins, outs);
+        } finally {
+            closeQuietly(ins);
+            closeQuietly(outs);
+        }
+        
+        return count;
+    }
+    
     /**
      * 以字符方式复制数据。
      * 
