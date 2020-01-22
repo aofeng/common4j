@@ -86,7 +86,7 @@ public class IOUtil {
         try {
             ins = new FileInputStream(src);
             outs = new FileOutputStream(dest);
-            copy(ins, outs);
+            count = copy(ins, outs);
         } finally {
             closeQuietly(ins);
             closeQuietly(outs);
