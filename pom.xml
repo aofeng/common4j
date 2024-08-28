@@ -3,7 +3,7 @@
     
     <groupId>com.github.aofeng</groupId>
     <artifactId>common4j</artifactId>
-    <version>0.3.4</version>
+    <version>0.3.5</version>
     <name>common4j</name>
     <url>https://github.com/aofeng/common4j</url>
 
@@ -116,6 +116,16 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
             </plugin>
         </plugins>
     </build>
