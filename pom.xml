@@ -1,7 +1,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     
-    <groupId>cn.aofeng</groupId>
+    <groupId>com.github.aofeng</groupId>
     <artifactId>common4j</artifactId>
     <version>0.3.4</version>
     <name>common4j</name>
