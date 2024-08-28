@@ -6,7 +6,15 @@
     <version>0.3.4</version>
     <name>common4j</name>
     <url>https://github.com/aofeng/common4j</url>
-    
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <jdk.version>1.8</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
     <organization>
         <name>cn.aofeng</name>
         <url>https://github.com/aofeng/common4j</url>
@@ -30,28 +38,21 @@
     <packaging>jar</packaging>
     
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
-            <scope>compile</scope>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.13</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.22</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.22</version>
-            <scope>compile</scope>
+            <version>1.7.36</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -81,8 +82,6 @@
                 <version>2.3.2</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -120,9 +119,5 @@
             </plugin>
         </plugins>
     </build>
-    
-    <properties>
-        <jdk.version>1.6</jdk.version>
-    </properties>
     
 </project>
