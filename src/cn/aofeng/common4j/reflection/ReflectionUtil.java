@@ -25,6 +25,7 @@ public class ReflectionUtil {
      * 
      * @param className 完整类名
      * @return 类实例。如果找不到指定的类名，将返回false。
+     * @param <T> 创建的实例类型
      */
     public static <T> T createInstance(String className) {
         return createInstance(className, null);
@@ -36,6 +37,7 @@ public class ReflectionUtil {
      * @param className 完整类名
      * @param loader 加载类的{@link ClassLoader}
      * @return 类实例。如果找不到指定的类名，将返回false。
+     * @param <T> 创建的实例类型
      */
     @SuppressWarnings("unchecked")
     public static <T> T createInstance(String className, ClassLoader loader) {
@@ -70,6 +72,7 @@ public class ReflectionUtil {
      * @param parameterTypes 构造参数类型数组
      * @param initargs 调用构造方法生成实例时作为参数传给构造方法的对象数组
      * @return 类实例。如果找不到指定的类名，将返回false。
+     * @param <T> 创建的实例类型
      */
     public static <T> T createInstance(String className, 
             Class<?>[] parameterTypes, Object[] initargs) {
@@ -84,6 +87,7 @@ public class ReflectionUtil {
      * @param initargs 调用构造方法生成实例时作为参数传给构造方法的对象数组
      * @param loader 加载类的{@link ClassLoader}
      * @return 类实例。如果找不到指定的类名，将返回false。
+     * @param <T> 创建的实例类型
      */
     @SuppressWarnings("unchecked")
     public static <T> T createInstance(String className, 

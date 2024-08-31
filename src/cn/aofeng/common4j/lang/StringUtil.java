@@ -9,12 +9,12 @@ public class StringUtil {
 
     /**
      * 判断字符串是否为null。例：
-     * <ul>
-     * <li>StringUtil.isNull(null)，结果为true。</li>
-     * <li>StringUtil.isNull("")，结果为false。</li>
-     * <li>StringUtil.isNull(" ")，结果为false。</li>
-     * <li>StringUtil.isNull("a")，结果为false。</li>
-     * </ul>
+     * &lt;ul&gt;
+     * &lt;li&gt;StringUtil.isNull(null)，结果为true。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isNull("")，结果为false。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isNull(" ")，结果为false。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isNull("a")，结果为false。&lt;/li&gt;
+     * &lt;/ul&gt;
      * 
      * @param str 字符串对象
      * @return 如果字符串为null，返回true。否则，返回false。
@@ -25,11 +25,12 @@ public class StringUtil {
     
     /**
      * 判断字符串是否为null或空字符串。例：
-     * <li>StringUtil.isEmpty(null)，结果为true。</li>
-     * <li>StringUtil.isEmpty("")，结果为true。</li>
-     * <li>StringUtil.isEmpty(" ")，结果为false。</li>
-     * <li>StringUtil.isEmpty("a")，结果为false。</li>
-     * </ul>
+     * &lt;ul&gt;
+     * &lt;li&gt;StringUtil.isEmpty(null)，结果为true。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isEmpty("")，结果为true。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isEmpty(" ")，结果为false。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isEmpty("a")，结果为false。&lt;/li&gt;
+     * &lt;/ul&gt;
      * 
      * @param str 字符串对象
      * @return 如果字符串为null或空字符串，返回true。否则，返回false。
@@ -40,12 +41,13 @@ public class StringUtil {
 
     /**
      * 判断字符串是否为null或全部由空白字符组成。例：
-     * <li>StringUtil.isNull(null)，结果为true。</li>
-     * <li>StringUtil.isNull("")，结果为true。</li>
-     * <li>StringUtil.isNull(" ")，结果为true。</li>
-     * <li>StringUtil.isNull("a")，结果为false。</li>
-     * <li>StringUtil.isNull(" a ")，结果为false。</li>
-     * </ul>
+     * &lt;ul&gt;
+     * &lt;li&gt;StringUtil.isNull(null)，结果为true。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isNull("")，结果为true。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isNull(" ")，结果为true。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isNull("a")，结果为false。&lt;/li&gt;
+     * &lt;li&gt;StringUtil.isNull(" a ")，结果为false。&lt;/li&gt;
+     * &lt;/ul&gt;
      * 
      * @param str 字符串对象
      * @return 如果字符串为null或全部由空白字符组成，返回true。否则，返回false。

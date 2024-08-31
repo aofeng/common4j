@@ -25,6 +25,7 @@ public class IOUtil {
     
     /**
      * 关闭实现了{@link Closeable}接口的对象或资源。
+     * @param closeable 待关闭的对象
      */
     public static void closeQuietly(Closeable closeable) {
         if (null != closeable) {
