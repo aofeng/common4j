@@ -1,10 +1,9 @@
 package cn.aofeng.common4j.lang;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * {@linkplain StringUtil}的单元测试用例。
@@ -12,14 +11,6 @@ import org.junit.Test;
  * @author <a href="mailto:aofengblog@163.com">聂勇</a>
  */
 public class StringUtilTest {
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
 
     @Test
     public void testIsNull() {

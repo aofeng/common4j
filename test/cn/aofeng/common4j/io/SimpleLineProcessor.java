@@ -1,10 +1,9 @@
 package cn.aofeng.common4j.io;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * 
- * 
+ *
  * @author <a href="mailto:aofengblog@163.com">聂勇</a>
  */
 public class SimpleLineProcessor implements TextFileLineProcessor {

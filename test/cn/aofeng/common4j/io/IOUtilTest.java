@@ -3,8 +3,6 @@
  */
 package cn.aofeng.common4j.io;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,9 +16,11 @@ import java.io.Writer;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * {@link IOUtil}的单元测试用例。
@@ -37,7 +37,7 @@ public class IOUtilTest {
     /**
      * @throws java.lang.Exception
      */
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         URL fileUrl = IOUtilTest.class.getResource("/cn/aofeng/common4j/io/LineSample.txt");
         srcFile = new File(fileUrl.getPath());
@@ -56,7 +56,7 @@ public class IOUtilTest {
     /**
      * @throws java.lang.Exception
      */
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         if (null != destFile && destFile.exists()) {
             destFile.delete();

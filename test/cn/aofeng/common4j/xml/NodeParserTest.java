@@ -1,14 +1,12 @@
 package cn.aofeng.common4j.xml;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * {@link NodeParser}的单元测试用例。
@@ -20,15 +18,7 @@ public class NodeParserTest {
     private Document _document = DomUtil.createDocument("/cn/aofeng/common4j/xml/NodeParser.xml");
     private Node _root = _document.getDocumentElement();
     private NodeParser _nodeParser = new NodeParser(_root);
-    
-    @Before
-    public void setUp() throws Exception {
-    }
-    
-    @After
-    public void tearDown() throws Exception {
-    }
-    
+
     @Test
     public void testGetValue() {
         // root节点没有值，但有子节点，会返回所有子节点的文本值

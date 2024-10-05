@@ -1,15 +1,12 @@
 package cn.aofeng.common4j.io;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * {@link TextFileLineReader}的单元测试用例。 
@@ -20,34 +17,21 @@ public class TextFileLineReaderTest {
 
     private TextFileLineReader _lineRead = new TextFileLineReader();
     
-    @Rule
-    public ExpectedException _expectedEx = ExpectedException.none();
-    
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
     /**
      * 前提：行处理器不为null <br>
      * 用例：文件对象为null
      */
     @Test
     public void testReadFileTextFileLineProcessor4FileIsNull() throws IOException {
-        _expectedEx.expect(IllegalArgumentException.class);
-        _expectedEx.expectMessage("file null invalid, may be not exists");
-        
         File file = null;
-        _lineRead.read(file, new TextFileLineProcessor() {
-            
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> _lineRead.read(file, new TextFileLineProcessor() {
+
             @Override
             public void process(String line, int lineNum) {
                 // nothing
             }
-        });
+        }));
+        assertEquals("file null invalid, may be not exists", ex.getMessage());
     }
     
     /**
@@ -56,17 +40,14 @@ public class TextFileLineReaderTest {
      */
     @Test
     public void testReadFileTextFileLineProcessor4FileNotExists() throws IOException {
-        _expectedEx.expect(IllegalArgumentException.class);
-        _expectedEx.expectMessage("file FileNotExists_999.txt invalid, may be not exists");
-        
         File file = new File("FileNotExists_999.txt");
-        _lineRead.read(file, new TextFileLineProcessor() {
-            
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> _lineRead.read(file, new TextFileLineProcessor() {
             @Override
             public void process(String line, int lineNum) {
                 // nothing
             }
-        });
+        }));
+        assertEquals("file FileNotExists_999.txt invalid, may be not exists", ex.getMessage());
     }
     
     /**
@@ -75,11 +56,9 @@ public class TextFileLineReaderTest {
      */
     @Test
     public void testReadFileTextFileLineProcessor4LineProcessorIsNull() throws IOException {
-        _expectedEx.expect(IllegalArgumentException.class);
-        _expectedEx.expectMessage("line processor is null");
-        
         File file = new File(getClass().getResource("/cn/aofeng/common4j/io/LineSample.txt").getFile());
-        _lineRead.read(file, null);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> _lineRead.read(file, null));
+        assertEquals("line processor is null", ex.getMessage());
     }
 
     /**
